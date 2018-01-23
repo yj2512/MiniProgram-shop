@@ -100,9 +100,6 @@ Page({
     } catch (e) {
       // Do something when catch error
     }
-    that.setData({
-      user_id: that.data.user_id,
-    })
   },
 
   /**

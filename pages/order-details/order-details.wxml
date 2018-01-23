@@ -32,10 +32,6 @@
     <view>商品金额</view>
     <view>￥{{goods_totalPrice}}</view>
   </view>
-  <view class='discount'>
-    <view>优惠抵扣</view>
-    <view>-￥{{discount}}</view>
-  </view>
   <view class='freight'>
     <view>运费</view>
     <view>￥{{freight}}</view>

@@ -12,8 +12,7 @@ Page({
   info_details:function(e){
     var idx = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/info-details/info-details?id=' + idx,
-      success: function(res) {},
+      url: '/pages/info-details/info-details?id=' + idx
     })
   },
   /**
@@ -22,8 +21,10 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: web_url + '/app.php?c=Notice&act=index&cateid=3',
-      data: {},
+      url: web_url + '/app.php?c=Notice&act=index',
+      data: {
+        cateid: options.id
+      },
       header: { 'content-type': 'application/json'},
       method: 'GET',
       dataType: 'json',

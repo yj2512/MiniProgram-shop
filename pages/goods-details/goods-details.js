@@ -146,6 +146,12 @@ Page({
   onLoad: function (options) {
     console.log('jiazai', options)
     var that = this;
+    if (options.fuserId == null) {
+      wx.setStorageSync('fuserId', null)
+    } else {
+      wx.setStorageSync('fuserId', options.fuserId)
+    }
+
     try {
       var user_id = wx.getStorageSync('user_id')
       var userMessage = wx.getStorageSync('user_info')
@@ -171,8 +177,7 @@ Page({
     wx.request({
       url: web_url + '/app.php?c=User&act=fxuser',
       data: {
-        fuserid: that.data.fuserid,
-        userid: that.data.user_id
+        fuserid: that.data.fuserid
       },
       header: {},
       method: 'GET',
@@ -336,7 +341,7 @@ Page({
     // console.log('options', options)
     var that = this
     return {
-      title: '',
+      title: that.data.title,
       path: '/pages/goods-details/goods-details?fuserId=' + that.data.user_id + '&goods_id=' + that.data.goods_id,
       success: function (res) {
         // console.log('转发', res)

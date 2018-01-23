@@ -14,19 +14,19 @@
     </view>
   </view>
   <view class='information'>
-    <view class='info_1' bindtap='info_list'>
+    <view class='info_1' bindtap='info_list' data-id='3'>
       <view class='info_1_title'>{{title_1}}</view>
       <view class='info_1_text'>{{text_1}}</view>
       <image src='{{info_1_img}}'></image>
     </view>
-    <view class='info_2' bindtap='info_details' data-id='{{id}}'>
+    <view class='info_2' bindtap='info_list' data-id='4'>
       <view class='info_2_content'>
         <view class='info_2_title'>{{title_2}}</view>
         <view class='info_2_text'>{{text_2}}</view>
       </view>
       <image src='{{info_2_img}}'></image>
     </view>
-    <view class='info_3' bindtap='info_details' data-id='{{id}}'>
+    <view class='info_3' bindtap='info_list' data-id='5'>
       <view class='info_3_content'>
         <view class='info_3_title'>{{title_3}}</view>
         <view class='info_3_text'>{{text_3}}</view>

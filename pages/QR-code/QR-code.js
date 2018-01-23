@@ -25,8 +25,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
     var that = this;
+    if (options.fuserId == null){
+      wx.setStorageSync('fuserId', null)
+    }else{
+      wx.setStorageSync('fuserId', options.fuserId)
+    }
+    
     try {
       var user_id = wx.getStorageSync('user_id')
       var userMessage = wx.getStorageSync('user_info')
@@ -56,7 +61,7 @@ Page({
     }
 
     //分销请求
-    console.log('userId', that.data.userId)
+    console.log('userId', user_id)
     console.log('fuserid', options.fuserId)
       wx.request({
         url: web_url + '/app.php?c=User&act=fxuser',
@@ -82,7 +87,6 @@ Page({
     })
     /** 判断场景值，1044 为转发场景，包含shareTicket 参数 */
     console.log('===options', options)
-    console.log('fuserId', options.fuserId)
     if (options.scene == 1044) {
       wx.getShareInfo({
         shareTicket: options.shareTicket,

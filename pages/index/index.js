@@ -35,31 +35,22 @@ Page({
     var index = e.currentTarget.dataset.index;
     var title = that.data.items[index].name
     wx.navigateTo({
-      url: '/pages/goods-list/goods-list?cate_id=' + idx + '&title=' + title,
-      success: function(res) {},
+      url: '/pages/goods-list/goods-list?cate_id=' + idx + '&title=' + title
     })
   },
   goods_details: function (e) {
     var idx = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/goods-details/goods-details?id=' + idx,
-      success: function (res) { },
+      url: '/pages/goods-details/goods-details?id=' + idx
     })
   },
-  info_list: function () {
+  info_list: function (e) {
+    let idx = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/info-list/info-list',
-      success: function (res) { },
+      url: '/pages/info-list/info-list?id=' + idx
     })
   },
 
-  info_details: function (e) {
-    var idx = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/info-details/info-details?id=' + idx,
-      success: function (res) { },
-    })
-  },
 
   //动画函数
   animationFn: function (btt, top_fixed) {
@@ -181,9 +172,7 @@ Page({
     } catch (e) {
       // Do something when catch error
     }
-    that.setData({
-      user_id: that.data.user_id,
-    })
+
     //首页轮播图
     wx.request({
       url: web_url + '/app.php?c=Banner&act=index',
@@ -242,6 +231,7 @@ Page({
       method: 'GET',
       dataType: 'json',
       success: function (res) {
+        console.log('zixun',res)
         var title_2 = res.data.data.name;
         var text_2 = res.data.data.content;
         var info_2_img = res.data.data.thumb
